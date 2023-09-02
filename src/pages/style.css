@@ -1,0 +1,36 @@
+.land {
+  position: relative;
+}
+.landModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(11, 12, 11, 0.932);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+  z-index: 1;
+}
+.landImg {
+  width: 100%;
+  height: 100%;
+}
+.landModal:hover {
+}
+.login {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color: white;
+}
+.content {
+  font-style: italic;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif, "Courier New";
+}
