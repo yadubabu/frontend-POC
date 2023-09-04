@@ -1,0 +1,18 @@
+.budget {
+  width: auto;
+  height: 30vh;
+  /* margin-left: 300px; */
+  padding-left: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: antiquewhite;
+}
+.trans {
+  width: auto;
+  height: 70vh;
+  /* margin-left: 300px; */
+  padding-left: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: antiquewhite;
+}

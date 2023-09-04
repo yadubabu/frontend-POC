@@ -6,14 +6,18 @@ import Row from "react-bootstrap/Row";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { loginApi } from "../redux/apis";
+import { useSelector } from "react-redux";
+import Dashboard from "./Dashboard";
+import { Auth } from "../dataTypes";
 
 const Login = () => {
+  const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
   const { register, handleSubmit } = useForm();
   const submitHandle = async (data: any) => {
     const { email, password } = data;
-    console.log(email);
-
+    if (email === "" || password === "") {
+    }
     await axios
       .post(loginApi, {
         email,
@@ -28,43 +32,63 @@ const Login = () => {
 
   return (
     <div className="sm-12 login" id="login">
-      {msg === "Successfully Login" ? (
-        <>{(window.location.href = "/dashboard")}</>
-      ) : (
-        ""
-      )}
-      <Card className="card" style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title className="text-center">Login Here</Card.Title>
-          <Form onSubmit={handleSubmit(submitHandle)}>
-            <Row>
-              <Col sm={12} className="m-2 ">
+      {!auth ? (
+        <>
+          <Form
+            className="m-5 p-3 loginForm"
+            onSubmit={handleSubmit(submitHandle)}
+          >
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextEmail"
+            >
+              <Form.Label column sm="2">
+                Email
+              </Form.Label>
+              <Col sm="10">
                 <Form.Control
-                  type="email"
                   {...register("email")}
-                  placeholder="Enter Email"
+                  type="email"
+                  placeholder="Enter your Email"
                 />
               </Col>
-              <Col sm={12} className="m-2">
+            </Form.Group>
+
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextPassword"
+            >
+              <Form.Label column sm="2">
+                Password
+              </Form.Label>
+              <Col sm="10">
                 <Form.Control
-                  type="password"
                   {...register("password")}
-                  placeholder="Enter Password"
+                  type="password"
+                  placeholder="Enter your password"
                 />
               </Col>
-            </Row>
-            <Row>
-              <Col sm={12} className="m-2">
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextPassword"
+            >
+              <Col sm="12" className="center">
                 <Form.Control
-                  className="text-success"
+                  className="btn btn-primary"
                   type="submit"
                   value="Login"
                 />
               </Col>
-            </Row>
-          </Form>
-        </Card.Body>
-      </Card>
+            </Form.Group>
+          </Form>{" "}
+        </>
+      ) : (
+        <Dashboard />
+      )}
     </div>
   );
 };

@@ -20,15 +20,7 @@
   width: 100%;
   height: 100%;
 }
-.landModal:hover {
-}
-.login {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  color: white;
-}
+
 .content {
   font-style: italic;
   text-align: center;
