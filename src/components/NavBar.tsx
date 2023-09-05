@@ -7,7 +7,7 @@ import { Auth, User } from "../dataTypes";
 
 const NavBar = () => {
   const auth = useSelector<Auth>((state) => state.auth);
-  const user: any = useSelector<User>((state) => state.user);
+  const user: any = useSelector<User>((state) => state.user.user);
   return (
     <Navbar bg="dark" expand="lg" variant="light">
       <Container fluid>
@@ -16,9 +16,7 @@ const NavBar = () => {
         </Navbar.Brand>
         <span className="h5 text-light">
           Hello!!
-          <span className="text-success">
-            {/* {auth ? JSON.parse(user).name : "Guest"} */}
-          </span>
+          <span className="text-success">{/* {user.name} */}</span>
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">

@@ -15,6 +15,9 @@ import SavingsBudget from "./components/budget/pages/SavingsBudget";
 import ExpenseBudget from "./components/budget/pages/ExpenseBudget";
 import InvestmentBudget from "./components/budget/pages/InvestmentBudget";
 import Logout from "./pages/Logout";
+import TransactionsTracker from "./components/transactions/TransactionsTracker";
+import TransactionsForm from "./components/transactions/TransactionsForm";
+import TransactionsHistory from "./components/transactions/TransactionsHistory";
 function App() {
   const dispatch = useDispatch();
 
@@ -45,6 +48,12 @@ function App() {
             path="/budget/investmentbudget"
             element={<InvestmentBudget />}
           />
+          <Route
+            path="/transactions/tracker"
+            element={<TransactionsTracker />}
+          />
+          <Route path="/transactions/add" element={<TransactionsForm />} />
+          <Route path="/transactions/edit" element={<TransactionsHistory />} />
 
           <Route path="/about" element={<About />} />
         </Routes>

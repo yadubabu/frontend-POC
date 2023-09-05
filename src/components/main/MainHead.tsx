@@ -9,10 +9,10 @@ import TotalInvestments from "../budget/cards/TotalInvestments";
 import TransactionsForm from "../transactions/TransactionsForm";
 import TransactionsTracker from "../transactions/TransactionsTracker";
 
-const Main = () => {
+const MainHead = () => {
   return (
-    <div className="main">
-      <Row className="budget">
+    <div className="head">
+      <Row className="budgetCards ">
         <Col sm={3}>
           <BalanceCard />
         </Col>
@@ -26,20 +26,7 @@ const Main = () => {
           <TotalInvestments />
         </Col>
       </Row>
-      <hr />
-      <Row className="trans">
-        <Col sm={4}>
-          <TransactionsForm />
-        </Col>
-        <Col sm={4}>
-          <TransactionsTracker />
-        </Col>
-        <Col sm={4}>
-          <TransactionsTracker />
-        </Col>
-      </Row>
     </div>
   );
 };
-
-export default Main;
+export default MainHead;

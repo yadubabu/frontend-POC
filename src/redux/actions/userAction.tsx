@@ -1,6 +1,5 @@
 export const userAction = () => {
-  const user = localStorage.getItem("data");
-  //   console.log(JSON.parse(user).name);
+  const user: string | null = JSON.parse(localStorage.getItem("data") || "{}");
 
   return {
     type: "SET_USER",

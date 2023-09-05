@@ -1,7 +1,7 @@
 import { User } from "../../dataTypes";
 
 const initialValue = {
-  user: "",
+  user: {},
 };
 type Users = {
   type: string;
@@ -9,8 +9,10 @@ type Users = {
 };
 export type UserAction = Users;
 const userReducer = (state = initialValue.user, action: UserAction) => {
+  console.log(action.payload);
+
   if (action.type === "SET_USER") {
-    return action.payload;
+    return { ...state, user: action.payload };
   } else {
     return state;
   }

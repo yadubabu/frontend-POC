@@ -1,20 +1,23 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import "./style.css";
 
 type Props = {
   title: string;
   color: string;
   name: string;
+  val: number;
 };
 const Cards = (props: Props) => {
   return (
     <div className="cards">
-      <div className="flip-card my-5" style={{ background: `${props.color}` }}>
+      <div
+        className="flip-card my-2 d-flex"
+        style={{ background: `${props.color}` }}
+      >
         <div className="flip-card-inner">
-          <div className="flip-card-front">{props.title}</div>
+          <div className="flip-card-front flex-column">
+            <p>{props.title}</p>
+            <p>{props.val}</p>
+          </div>
           <div
             className="flip-card-back"
             style={{ background: `${props.color}` }}

@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Auth } from "../dataTypes";
-
+import Home from "./Home";
 const Logout = () => {
-  const auth: string | unknown = useSelector<Auth>((state) => state.auth);
-
-  return <div>{auth ? localStorage.removeItem("data") : ""}</div>;
+  // const auth: string | void = useSelector<Auth>((state) => state.auth);
+  useEffect(() => {
+    localStorage.removeItem("data");
+  }, []);
+  return <div>{(window.location.href = "/")}</div>;
 };
 
 export default Logout;

@@ -6,7 +6,7 @@ type Auth = {
   payload: boolean;
 };
 export type AuthAction = Auth;
-const authReducer = (state = initialValue, action: AuthAction) => {
+const authReducer = (state = initialValue.auth, action: AuthAction) => {
   if (action.type === "SET_AUTH") {
     return action.payload;
   } else {
