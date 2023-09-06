@@ -23,7 +23,7 @@ export interface Budget {
   _id: string;
   email: string;
   totalAmount: number;
-  expensBudget: number;
+  expenseBudget: number;
   investmentBudget: number;
   budget: Budget;
 }

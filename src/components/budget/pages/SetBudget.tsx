@@ -34,6 +34,7 @@ const Login = () => {
 
   return (
     <div className="mt-3 md-6 login" id="login">
+      {msg ? <span className="text-danger">{msg}</span> : ""}
       <>
         <Form
           className="m-5 p-3 loginForm"
