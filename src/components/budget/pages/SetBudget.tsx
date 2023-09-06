@@ -7,13 +7,30 @@ import { useForm } from "react-hook-form";
 import "../style.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { setbudgetApi } from "../../../redux/apis";
 
 const Login = () => {
+  const [msg, setMsg] = useState("");
   let user: any = JSON.parse(sessionStorage.getItem("data") || "{}");
   console.log(user.email);
-
   const { register, handleSubmit } = useForm();
-  const submitHandle = async (data: any) => {};
+  const submitHandle = async (data: any) => {
+    const { totalAmount, expenseBudget, investmentBudget } = data;
+    if (
+      parseInt(expenseBudget) + parseInt(investmentBudget) >
+      parseInt(totalAmount)
+    ) {
+      setMsg("Limit on expense and investment not exceeds total amount ");
+    }
+    const response = await axios.post(`${setbudgetApi}/${user.email}`, {
+      totalAmount,
+      expenseBudget,
+      investmentBudget,
+    });
+    if (response) {
+      window.location.href = "/dashboard";
+    }
+  };
 
   return (
     <div className="mt-3 md-6 login" id="login">
