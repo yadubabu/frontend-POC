@@ -11,7 +11,7 @@ import TransactionsTracker from "../transactions/TransactionsTracker";
 
 const MainHead = () => {
   return (
-    <div className="head">
+    <div className="head m-2">
       <Row className="budgetCards ">
         <Col sm={3}>
           <BalanceCard />

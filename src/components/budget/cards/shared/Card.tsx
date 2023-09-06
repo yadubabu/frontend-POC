@@ -15,10 +15,8 @@ const Cards = (props: Props) => {
       >
         <div className="flip-card-inner">
           <div className="flip-card-front flex-column">
-            <p>
-              {props.title}
-              {props.val}
-            </p>
+            <p>{props.title}</p>
+            <p>{props.val}</p>
           </div>
           <div
             className="flip-card-back"

@@ -7,16 +7,23 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { loginApi } from "../redux/apis";
 import { useSelector } from "react-redux";
-import Dashboard from "./Dashboard";
 import { Auth } from "../dataTypes";
+import { LoginValidators } from "../validators/loginValidators";
 
 const Login = () => {
   const auth = useSelector<Auth>((state) => state.auth);
   const [msg, setMsg] = useState("");
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
   const submitHandle = async (data: any) => {
     const { email, password } = data;
     if (email === "" || password === "") {
+      setMsg("All fields are mandatory");
+    } else if (password.length < 6 || password.length > 10) {
+      setMsg("Password should be 6 characters");
     }
     const result = await axios.post(loginApi, {
       email,
@@ -27,11 +34,24 @@ const Login = () => {
       setMsg(result.data.msg);
     }
   };
-
+  const registerOptions = {
+    email: { required: "Email cannot be blank" },
+    password: {
+      required: "Password is required",
+      minLength: {
+        value: 6,
+        message: "Password must be atleast 6 characters",
+      },
+      maxLength: {
+        value: 10,
+        message: "Password not more than 10 characters",
+      },
+    },
+  };
   return (
-    <div className="sm-12 login" id="login">
+    <div className="mt-3 md-6 login" id="login">
       <span className="text-success h4"> {msg}</span>
-      {msg ? (
+      {msg === "Successfully Login" ? (
         <>
           {setTimeout(() => {
             window.location.href = "/dashboard";
@@ -48,7 +68,7 @@ const Login = () => {
           >
             <Form.Group
               as={Row}
-              className="mb-3"
+              className="mt-3 m-2"
               controlId="formPlaintextEmail"
             >
               <Form.Label column sm="2">
@@ -56,16 +76,18 @@ const Login = () => {
               </Form.Label>
               <Col sm="10">
                 <Form.Control
-                  {...register("email")}
+                  {...register("email", registerOptions.email)}
                   type="email"
                   placeholder="Enter your Email"
                 />
+                <small className="text-danger">
+                  {/* {errors?.email && errors.email?.message} */}
+                </small>
               </Col>
             </Form.Group>
-
             <Form.Group
               as={Row}
-              className="mb-3"
+              className="mb-3 m-2"
               controlId="formPlaintextPassword"
             >
               <Form.Label column sm="2">
@@ -73,20 +95,19 @@ const Login = () => {
               </Form.Label>
               <Col sm="10">
                 <Form.Control
-                  {...register("password")}
+                  {...register("password", registerOptions.password)}
                   type="password"
                   placeholder="Enter your password"
                 />
+                <small className="text-danger">
+                  {/* {errors?.password && errors.password?.message} */}
+                </small>
               </Col>
             </Form.Group>
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextPassword"
-            >
-              <Col sm="12" className="center">
+            <Form.Group as={Row} className="mb-3">
+              <Col sm="3" className="mb-2">
                 <Form.Control
-                  className="btn btn-primary"
+                  className="logBtn btn btn-warning"
                   type="submit"
                   value="Login"
                 />

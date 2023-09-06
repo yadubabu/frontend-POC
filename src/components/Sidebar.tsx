@@ -12,7 +12,7 @@ const Sidebar = () => {
   const user = useSelector<User>((state) => state);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar m-2">
       <h5>
         Welcome!
         {/* {user.name} */}

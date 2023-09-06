@@ -6,7 +6,6 @@ const BalanceCard = () => {
   const totalAmount: any = useSelector<Budget>(
     (state) => state.budget.budget.totalAmount
   );
-  console.log(totalAmount);
 
   return (
     <div>
