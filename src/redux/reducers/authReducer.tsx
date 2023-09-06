@@ -8,7 +8,7 @@ type Auth = {
 export type AuthAction = Auth;
 const authReducer = (state = initialValue, action: AuthAction) => {
   if (action.type === "SET_AUTH") {
-    return { ...state, auth: action.payload };
+    return action.payload;
   } else {
     return state;
   }

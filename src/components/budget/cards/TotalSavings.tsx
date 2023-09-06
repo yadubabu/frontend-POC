@@ -7,7 +7,6 @@ const TotalSavings = () => {
   return (
     <div>
       <Cards
-        val={data.account.account}
         name="savingsbudget"
         title="Total Savings"
         color="rgb(255, 99, 132)"

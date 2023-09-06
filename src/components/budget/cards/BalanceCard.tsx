@@ -9,12 +9,7 @@ const BalanceCard = () => {
 
   return (
     <div>
-      <Cards
-        val={budget.totalAmount}
-        name="setbudget"
-        title="Available Balance"
-        color="lightgreen"
-      />
+      <Cards name="setbudget" title="Available Balance" color="lightgreen" />
     </div>
   );
 };

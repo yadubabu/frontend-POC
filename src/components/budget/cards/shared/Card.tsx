@@ -1,7 +1,6 @@
 import "./style.css";
 
 type Props = {
-  val: number;
   title: string;
   color: string;
   name: string;
@@ -15,10 +14,7 @@ const Cards = (props: Props) => {
       >
         <div className="flip-card-inner">
           <div className="flip-card-front flex-column">
-            <p>
-              {props.title}
-              {props.val}
-            </p>
+            <p>{props.title}</p>
           </div>
           <div
             className="flip-card-back"
