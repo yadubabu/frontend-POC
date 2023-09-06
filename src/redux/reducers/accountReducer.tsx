@@ -10,13 +10,10 @@ type Accounts = {
   payload: Account;
 };
 export type AccountAction = Accounts;
-const accountReducer = (
-  state = initialValue.account,
-  action: AccountAction
-) => {
+const accountReducer = (state = initialValue, action: AccountAction) => {
   console.log(action.payload);
 
-  if (action.type === Types.GET_ACC) {
+  if (action.type === Types.GET_ACCOUNT) {
     return { ...state, account: action.payload };
   } else {
     return state;

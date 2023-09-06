@@ -18,21 +18,29 @@ const Login = () => {
     const { email, password } = data;
     if (email === "" || password === "") {
     }
-    await axios
-      .post(loginApi, {
-        email,
-        password,
-      })
-      .then((res) => {
-        localStorage.setItem("data", JSON.stringify(res.data));
-        setMsg(res.data.msg);
-      })
-      .catch((err) => console.log(err));
+    const result = await axios.post(loginApi, {
+      email,
+      password,
+    });
+    if (result) {
+      sessionStorage.setItem("data", JSON.stringify(result.data));
+      setMsg(result.data.msg);
+    }
   };
 
   return (
     <div className="sm-12 login" id="login">
-      {!auth ? (
+      <span className="text-success h4"> {msg}</span>
+      {msg ? (
+        <>
+          {setTimeout(() => {
+            window.location.href = "/dashboard";
+          }, 2000)}
+        </>
+      ) : (
+        ""
+      )}
+      {!auth && (
         <>
           <Form
             className="m-5 p-3 loginForm"
@@ -86,8 +94,6 @@ const Login = () => {
             </Form.Group>
           </Form>{" "}
         </>
-      ) : (
-        <Dashboard />
       )}
     </div>
   );

@@ -16,7 +16,7 @@ const NavBar = () => {
         </Navbar.Brand>
         <span className="h5 text-light">
           Hello!!
-          <span className="text-success">{/* {user.name} */}</span>
+          <span className="text-success">{}</span>
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">

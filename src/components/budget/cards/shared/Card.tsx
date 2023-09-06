@@ -1,10 +1,10 @@
 import "./style.css";
 
 type Props = {
+  val: number;
   title: string;
   color: string;
   name: string;
-  val: number;
 };
 const Cards = (props: Props) => {
   return (
@@ -15,8 +15,10 @@ const Cards = (props: Props) => {
       >
         <div className="flip-card-inner">
           <div className="flip-card-front flex-column">
-            <p>{props.title}</p>
-            <p>{props.val}</p>
+            <p>
+              {props.title}
+              {props.val}
+            </p>
           </div>
           <div
             className="flip-card-back"
@@ -24,7 +26,7 @@ const Cards = (props: Props) => {
           >
             <h1 className="h6">{props.title}</h1>
             <p>We can see {props.title}</p>
-            <a className="text-danger" href={`/budget/${props.name}`}>
+            <a className="text-danger" href={`/dashboard/budget/${props.name}`}>
               Click Here
             </a>
           </div>

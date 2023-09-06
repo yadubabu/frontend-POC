@@ -9,7 +9,7 @@ import { Auth } from "../dataTypes";
 import "./style.css";
 
 const Sidebar = () => {
-  const user: any = useSelector<User>((state) => state.user.user);
+  const user = useSelector<User>((state) => state);
 
   return (
     <div className="sidebar">
@@ -18,13 +18,23 @@ const Sidebar = () => {
         {/* {user.name} */}
       </h5>
       <Nav className="sideNavs flex-column align-items-center justify-content-center my-5">
-        <Nav.Link href="/budget/setbudget">Set Budget</Nav.Link>
-        <Nav.Link href="/budget/savingsbudget">Total-Savings</Nav.Link>
-        <Nav.Link href="/budget/expensebudget">Total-Expenses</Nav.Link>
-        <Nav.Link href="/budget/investmentbudget">Total-Investments</Nav.Link>
-        <Nav.Link href="/transactions/tracker">Transactions-Tracker</Nav.Link>
-        <Nav.Link href="/transactions/add">Add-Transactions</Nav.Link>
-        <Nav.Link href="/transactions/edit">Transactions-History</Nav.Link>
+        <Nav.Link href="/dashboard/budget/setbudget">Set Budget</Nav.Link>
+        <Nav.Link href="/dashboard/budget/savingsbudget">
+          Total-Savings
+        </Nav.Link>
+        <Nav.Link href="/dashboard/budget/expensebudget">
+          Total-Expenses
+        </Nav.Link>
+        <Nav.Link href="/dashboard/budget/investmentbudget">
+          Total-Investments
+        </Nav.Link>
+        <Nav.Link href="/dashboard/transactions/tracker">
+          Transactions-Tracker
+        </Nav.Link>
+        <Nav.Link href="/dashboard/transactions/add">Add-Transactions</Nav.Link>
+        <Nav.Link href="/dashboard/transactions/edit">
+          Transactions-History
+        </Nav.Link>
       </Nav>
     </div>
   );

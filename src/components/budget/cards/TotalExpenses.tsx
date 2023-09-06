@@ -4,13 +4,12 @@ import { useSelector } from "react-redux";
 import { Account, Budget } from "../../../dataTypes";
 
 const TotalExpenses = () => {
-  const budget: any = useSelector<Budget>((state) => state.budget.budget);
-  const account: any = useSelector<Account>((state) => state.account.account);
+  const data: any = useSelector((state) => state);
 
   return (
     <div>
       <Cards
-        val={account.totalExpense}
+        val={data.account.account}
         name="expensebudget"
         title="Total Expenses"
         color="rgb(255, 205, 86)"

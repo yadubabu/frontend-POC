@@ -18,11 +18,11 @@ import Logout from "./pages/Logout";
 import TransactionsTracker from "./components/transactions/TransactionsTracker";
 import TransactionsForm from "./components/transactions/TransactionsForm";
 import TransactionsHistory from "./components/transactions/TransactionsHistory";
-function App() {
+const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getAuth = localStorage.getItem("data");
+    const getAuth = sessionStorage.getItem("data");
     dispatch(authAction(Boolean(getAuth)));
   }, []);
   const auth = useSelector<Auth>((state) => state.auth);
@@ -41,25 +41,37 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/budget/setbudget" element={<SetBudget />} />
-          <Route path="/budget/savingsbudget" element={<SavingsBudget />} />
-          <Route path="/budget/expensebudget" element={<ExpenseBudget />} />
+          <Route path="/dashboard/budget/setbudget" element={<SetBudget />} />
           <Route
-            path="/budget/investmentbudget"
+            path="/dashboard/budget/savingsbudget"
+            element={<SavingsBudget />}
+          />
+          <Route
+            path="/dashboard/budget/expensebudget"
+            element={<ExpenseBudget />}
+          />
+          <Route
+            path="/dashboard/budget/investmentbudget"
             element={<InvestmentBudget />}
           />
           <Route
-            path="/transactions/tracker"
+            path="/dashboard/transactions/tracker"
             element={<TransactionsTracker />}
           />
-          <Route path="/transactions/add" element={<TransactionsForm />} />
-          <Route path="/transactions/edit" element={<TransactionsHistory />} />
+          <Route
+            path="/dashboard/transactions/add"
+            element={<TransactionsForm />}
+          />
+          <Route
+            path="/dashboard/transactions/edit"
+            element={<TransactionsHistory />}
+          />
 
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </div>
   );
-}
+};
 
 export default App;

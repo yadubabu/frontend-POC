@@ -5,7 +5,7 @@ import Home from "./Home";
 const Logout = () => {
   // const auth: string | void = useSelector<Auth>((state) => state.auth);
   useEffect(() => {
-    localStorage.removeItem("data");
+    sessionStorage.removeItem("data");
   }, []);
   return <div>{(window.location.href = "/")}</div>;
 };
