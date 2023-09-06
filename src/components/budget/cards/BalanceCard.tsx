@@ -3,13 +3,19 @@ import { useSelector } from "react-redux";
 import { Budget } from "../../../dataTypes";
 
 const BalanceCard = () => {
-  const budget: any = useSelector<Budget>((state) => state.budget.budget);
-  const data = useSelector((state) => state);
-  console.log(data);
+  const totalAmount: any = useSelector<Budget>(
+    (state) => state.budget.budget.totalAmount
+  );
+  console.log(totalAmount);
 
   return (
     <div>
-      <Cards name="setbudget" title="Available Balance" color="lightgreen" />
+      <Cards
+        val={totalAmount}
+        name="setbudget"
+        title="Available Balance"
+        color="lightgreen"
+      />
     </div>
   );
 };

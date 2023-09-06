@@ -16,7 +16,6 @@ import { getAccount } from "../redux/actions/accountAction";
 const Dashboard = () => {
   const dispatch = useDispatch();
   let user: any = JSON.parse(sessionStorage.getItem("data") || "{}");
-  console.log(user.email);
 
   const fetchAccount = async () => {
     const res: AxiosResponse<any, any> = await axios.get(

@@ -10,7 +10,7 @@ type Budgets = {
   payload: Budget;
 };
 export type BudgetAction = Budgets;
-const budgetReducer = (state = initialValue.budget, action: BudgetAction) => {
+const budgetReducer = (state = initialValue, action: BudgetAction) => {
   console.log(action.payload);
 
   if (action.type === Types.GET_BUDGET) {
