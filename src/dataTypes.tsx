@@ -6,17 +6,11 @@ export interface Account {
   totalSavings: number;
   totalExpense: number;
   totalInvestment: number;
-  account: Account;
 }
 export interface User {
-  _id: string;
-  name: string;
+  msg: string;
   email: string;
-  password: string;
-  confirmpassword: string;
-  pancard: string;
-  phone: number;
-  user: User;
+  name: string;
 }
 
 export interface Budget {
@@ -25,7 +19,6 @@ export interface Budget {
   totalAmount: number;
   expenseBudget: number;
   investmentBudget: number;
-  budget: Budget;
 }
 
 export interface Trans {
@@ -35,7 +28,6 @@ export interface Trans {
   type: string;
   amount: number;
   transdate: Date;
-  trans: Trans[];
 }
 
 export interface Objects {

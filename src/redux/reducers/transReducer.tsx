@@ -1,20 +1,25 @@
 import { Types } from "../enums/constants";
+import { Trans } from "../../dataTypes";
+const initialValue: Trans[] = [
+  {
+    _id: "",
+    email: "",
+    name: "",
+    type: "",
+    amount: 0,
+    transdate: new Date(),
+  },
+];
 
-const initialValue = {
-  trans: [],
-};
-
-interface Action {
+export type TransAction = {
   type: string;
-  payload: any;
-}
-
-export type DataAction = Action;
-const transReducer = (state = initialValue, action: DataAction) => {
+  payload: Trans[];
+};
+const transReducer = (transState = initialValue, action: TransAction) => {
   if (action.type === Types.GET_TRANS) {
-    return [...state.trans, { trans: action.payload }];
+    return [...transState, [...action.payload]];
   } else {
-    return state;
+    return transState;
   }
 };
 

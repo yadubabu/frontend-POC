@@ -1,11 +1,10 @@
 import React from "react";
 import Cards from "./shared/Card";
 import { useSelector } from "react-redux";
-import { Account } from "../../../dataTypes";
-
+import { AppState } from "../../../redux/store";
 const TotalInvestments = () => {
-  const totalInvestment: any = useSelector<Account>(
-    (state) => state.account.account.totalInvestment
+  const totalInvestment = useSelector<AppState, number>(
+    ({ account }) => account.totalInvestment
   );
   return (
     <div>

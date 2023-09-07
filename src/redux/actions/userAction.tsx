@@ -1,8 +1,10 @@
+import { Types } from "../enums/constants";
+
 export const userAction = () => {
   const user = sessionStorage.getItem("data");
 
   return {
-    type: "SET_USER",
+    type: Types.SET_USER,
     payload: user,
   };
 };

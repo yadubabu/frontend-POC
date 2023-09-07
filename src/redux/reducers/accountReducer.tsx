@@ -2,7 +2,11 @@ import { Types } from "../enums/constants";
 import { Account } from "../../dataTypes";
 
 const initialValue = {
-  account: {},
+  _id: "",
+  email: "",
+  totalSavings: 0,
+  totalExpense: 0,
+  totalInvestments: 0,
 };
 
 type Accounts = {

@@ -33,7 +33,7 @@
   padding: 10px;
 }
 
-@media (max-width: 786px) {
+@media (max-width: 680px) {
   .head {
     height: auto;
   }
@@ -44,6 +44,9 @@
   .trans {
     display: flex;
   }
+}
+.budgetCards {
+  width: 100%;
 }
 .transactionCards {
   width: 100%;

@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import axios, { AxiosResponse } from "axios";
 import { getTransApi } from "../../redux/apis";
 import { Trans } from "../../dataTypes";
+import { AppState } from "../../redux/store";
 
 function TransactionsHistory() {
   const dispatch = useDispatch();
-  let user: any = JSON.parse(sessionStorage.getItem("data") || "{}");
+  let user = JSON.parse(sessionStorage.getItem("data") || "{}");
   const fetchTransaction = async () => {
     const res: AxiosResponse<any, any> = await axios.get(
       `${getTransApi}/${user.email}`
@@ -20,7 +21,7 @@ function TransactionsHistory() {
   useEffect(() => {
     fetchTransaction();
   }, [user]);
-  const trans = useSelector<Trans>((state) => state.trans[0].trans);
+  const trans = useSelector<AppState, Trans[]>(({ trans }) => trans);
   console.log(trans);
 
   return (
@@ -34,7 +35,7 @@ function TransactionsHistory() {
         </tr>
       </thead>
       <tbody>
-        {trans.map<Function>((tran: Trans, index: number) => {
+        {trans.map((tran: Trans, index: number) => {
           return (
             <>
               <tr>

@@ -1,6 +1,8 @@
+import { Types } from "../enums/constants";
+
 export const authAction = (auth: boolean) => {
   return {
-    type: "SET_AUTH",
+    type: Types.SET_AUTH,
     payload: auth,
   };
 };

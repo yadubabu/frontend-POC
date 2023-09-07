@@ -4,6 +4,15 @@ import { applyMiddleware, compose } from "redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reducers from "./reducers";
 import promiseMiddleware from "redux-promise";
+import { Account, Budget, Trans, User } from "../dataTypes";
+
+export interface AppState {
+  auth: Boolean;
+  user: User;
+  budget: Budget;
+  account: Account;
+  trans: Trans[];
+}
 
 declare global {
   interface Window {

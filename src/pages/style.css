@@ -49,3 +49,23 @@
     width: 10%;
   }
 }
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.budgetCard {
+  margin: 25px;
+  width: 600px;
+  height: 400px;
+}
+@media (max-width: 786px) {
+  .budgetCard {
+    width: 380px;
+    height: 300px;
+  }
+}
+#login span {
+  text-align: center;
+}

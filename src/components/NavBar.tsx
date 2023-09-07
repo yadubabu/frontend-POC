@@ -7,7 +7,9 @@ import { Auth, User } from "../dataTypes";
 
 const NavBar = () => {
   const auth = useSelector<Auth>((state) => state.auth);
-  const user: any = useSelector<User>((state) => state.user.user);
+  const data = auth
+    ? JSON.parse(sessionStorage.getItem("data") || "{}").name
+    : "Guest";
   return (
     <Navbar bg="dark" expand="lg" variant="light">
       <Container fluid>
@@ -16,22 +18,32 @@ const NavBar = () => {
         </Navbar.Brand>
         <span className="h5 text-light">
           Hello!!
-          <span className="text-success">{}</span>
+          <span className="text-success">{data}</span>
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">
-          <Nav className="me-auto justify-content-center align-items-center">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/login">{auth ? "" : "Login"}</Nav.Link>
+          <Nav className="me-auto navbar mx-5">
+            <Nav.Link href="/" className="text-warning">
+              Home
+            </Nav.Link>
+            <Nav.Link className="text-warning" href="/login">
+              {auth ? "" : "Login"}
+            </Nav.Link>
             {auth ? (
               <Nav.Link href="/register" disabled>
                 Register
               </Nav.Link>
             ) : (
-              <Nav.Link href="/register">Register</Nav.Link>
+              <Nav.Link className="text-warning" href="/register">
+                Register
+              </Nav.Link>
             )}
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/logout">{auth ? "Logout" : ""}</Nav.Link>
+            <Nav.Link className="text-warning" href="/about">
+              About
+            </Nav.Link>
+            <Nav.Link className="text-warning " href="/logout">
+              {auth ? "Logout" : ""}
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -5,4 +5,5 @@ export enum Types {
   GET_OBJECTS = "GET_OBJECTS",
   GET_BUDGET = "GET_BUDGET",
   SET_BUDGET = "SET_BUDGET",
+  SET_AUTH = "SET_AUTH",
 }

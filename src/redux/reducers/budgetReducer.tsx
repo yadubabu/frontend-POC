@@ -1,20 +1,24 @@
 import { Types } from "../enums/constants";
 import { Budget } from "../../dataTypes";
 
-const initialValue = {
-  budget: {},
+const initialValue: Budget = {
+  _id: "",
+  email: "",
+  expenseBudget: 0,
+  investmentBudget: 0,
+  totalAmount: 0,
 };
 
-type Budgets = {
+export type BudgetAction = {
   type: string;
   payload: Budget;
 };
-export type BudgetAction = Budgets;
+
 const budgetReducer = (state = initialValue, action: BudgetAction) => {
   console.log(action.payload);
 
   if (action.type === Types.GET_BUDGET) {
-    return { ...state, budget: action.payload };
+    return { ...state, ...action.payload };
   } else {
     return state;
   }

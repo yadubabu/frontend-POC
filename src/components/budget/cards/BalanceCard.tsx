@@ -1,10 +1,10 @@
 import Cards from "./shared/Card";
 import { useSelector } from "react-redux";
-import { Budget } from "../../../dataTypes";
+import { AppState } from "../../../redux/store";
 
 const BalanceCard = () => {
-  const totalAmount: any = useSelector<Budget>(
-    (state) => state.budget.budget.totalAmount
+  const totalAmount = useSelector<AppState, number>(
+    ({ budget }) => budget.totalAmount
   );
 
   return (
